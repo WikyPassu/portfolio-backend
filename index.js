@@ -8,7 +8,7 @@ const app = express();
 const { logger, handlerNotFound, handlerError } = require("./utils/mw");
 const { mailRouter } = require("./routes/mailRouter");
 
-app.use(cors({ origin: "https://alan-passucci.vercel.app" }));
+app.use(cors({ origin: "https://alan-passucci.vercel.app*" }));
 app.use(express.json());
 app.use(logger);
 
