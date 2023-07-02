@@ -16,7 +16,7 @@ mailRouter.post("/", async (req, res, next) => {
       }});
     }
     
-    mail.ip = req.ip;
+    mail.ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const currentTime = Math.floor(Date.now() / 1000);
     const lastMail = await Mail.findOne({ ip: mail.ip }).sort({ createdAt: -1 });
     
