@@ -8,15 +8,7 @@ const app = express();
 const { logger, handlerNotFound, handlerError } = require("./utils/mw");
 const { mailRouter } = require("./routes/mailRouter");
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if(["https://alan-passucci.vercel.app"].indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Access not allowed by CORS"));
-    }
-  }
-}));
+app.use(cors({ origin: "https://alan-passucci.vercel.app" }));
 app.use(express.json());
 app.use(logger);
 
