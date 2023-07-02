@@ -20,6 +20,8 @@ app.use(cors({
 app.use(express.json());
 app.use(logger);
 
+app.get("/", (req, res) => res.send("<h1>Portfolio-API</h1>"));
+
 app.use("/api/mail", mailRouter);
 
 app.use(handlerNotFound);
