@@ -10,7 +10,7 @@ const { mailRouter } = require("./routes/mailRouter");
 
 app.use(cors({
   origin: (origin, callback) => {
-    if(["https://alan-passucci.vercel.app/"].indexOf(origin) !== -1 || !origin) {
+    if(["https://alan-passucci.vercel.app"].indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error("Access not allowed by CORS"));
